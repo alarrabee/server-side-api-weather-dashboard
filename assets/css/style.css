@@ -10,6 +10,7 @@ h1 {
     padding-bottom: 5px;
 }
 
+
 section {
     border: solid 2px rgba(0, 0, 255, 0.699);
 }
@@ -25,8 +26,19 @@ form {
 }
 
 button {
+    display: flex;
     margin: 0 auto;
     display: inline-block;
     width:300px;
     margin-bottom: 10px;
 }
+
+#search-btn {
+    display: flex;
+}
+
+/* .section-two {
+    flex-direction: column;
+    justify-content: space-around;
+    overflow-y: auto; /*scroll bars *//*
+}*/
