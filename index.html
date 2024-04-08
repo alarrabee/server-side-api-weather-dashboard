@@ -13,33 +13,42 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <div>
-        <h2>Search for a City:</h2>
+    <main class="container">
+        <section class="row">
+            <section class="col-3">
+                <h2>Search for a City:</h2>
 
-        <form id="search-form">
-            <div id="search-bar">
-                <input class="form-control" type="text" placeholder="Minneapolis" aria-label="default input example">
-            </div>
-            <div id="search-btn">
-                <button type="button" class="btn btn-primary">Search</button>
-            </div>
-        </form>
+                <form id="search-form">
+                    <div id="search-bar">
+                        <input class="form-control" type="text" placeholder="Minneapolis" aria-label="default input example">
+                    </div>
+                    <div id="search-btn">
+                        <button type="button" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
 
-        <div id="searched-container">
-            <h3>Recently Viewed:</h3>
-        </div>
+                <div id="searched-container">
+                    <h3>Recently Viewed:</h3>
+                </div>
+            </section>
 
-        <div id="today-container">
-            <h3>Today:</h3>
-        </div>
+            <section class="col">
+                <div id="today-container">
+                    <h3>Today:</h3>
+                </div>
 
-        <div id="forecast-container">
-            <h3>5-Day Forecast:</h3>
-        </div>
+                <div id="forecast-container">
+                    <h3>5-Day Forecast:</h3>
+                </div>
+            </section>
+        </section>
 
-    </div>
+
+    </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
