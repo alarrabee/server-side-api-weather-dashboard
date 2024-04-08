@@ -10,7 +10,7 @@
 <body>
     
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1></h1>
     </header>
 
     <main class="container">
@@ -22,23 +22,31 @@
                     <div>
                         <input id="user-search" class="form-control" type="text" placeholder="Minneapolis" aria-label="default input example">
                     </div>
-                    <div>
+                    <div id="search-btn">
                         <button type="button" class="btn btn-primary">Search</button>
                     </div>
                 </form>
 
                 <div id="searched-container">
-                    <h3>Recently Viewed:</h3>
+                    <h4>Recently Viewed:</h4>
                 </div>
             </section>
 
             <section class="col">
-                <div id="today-container">
-                    <h3>Today:</h3>
+                <div id="day0">
+                    <h3 id="city-name">City Name and Date Placeholder</h3>
+                    <p id="temp-today"></p>
+                    <p id="wind-today"></p>
+                    <p id="humidity-today"></p>
                 </div>
 
-                <div id="forecast-container">
-                    <h3>5-Day Forecast:</h3>
+                <div id="five-day-container">
+                    <h4>5-Day Forecast:</h4>
+                    <div id="day1"></div>
+                    <div id="day2"></div>
+                    <div id="day3"></div>
+                    <div id="day4"></div>
+                    <div id="day5"></div>
                 </div>
             </section>
         </section>
