@@ -68,7 +68,7 @@ function displayWeather(weatherData) {
 
   // Inserts the above information into a string using template literals
   const cityTitle = `Today's Forecast for: ${cityName}`;
-  const todaysDate = dayjs();
+  const todaysDate = dayjs().format('ddd MM/DD/YYYY');
   const todaysWeather = `Temperature: ${temperature}°C, Wind Speed: ${windSpeed} m/s, Humidity: ${humidity}%`;
 
   // Selects the elements where the information will be displayed
