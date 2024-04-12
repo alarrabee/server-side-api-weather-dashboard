@@ -42,3 +42,8 @@ button {
     justify-content: space-around;
     overflow-y: auto; /*scroll bars *//*
 }*/
+
+
+.five-day-div {
+    border: solid 2px rgba(0, 0, 255, 0.699);
+}
