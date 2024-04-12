@@ -1,14 +1,9 @@
-//`https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}`;
-//http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-
 const searchBtnEl = document.getElementById('searchBtn'); //reminder .getElementbyId does not need #
 const searchBarEl = document.getElementById('searchBar');
 // const userSearchEl = document.getElementById('#user-search').value; - add .value to button event listener so it triggers on click. The value when your page loads is nothing.
 
 
-
-
-//function that saves search value to localStorage
+//Saves search value to localStorage
 function getCity() {
   const searchValue = searchBarEl.value.trim(); //trim removes white spaces before and after the entered value 
   if (!searchValue) { //alerts user to enter a city name
@@ -23,15 +18,15 @@ function getCity() {
   getFiveDay(searchValue);
 }
 
-
-//converts the city into lat and lon by using the direct geocoding api
+//-----------------------------------------------------------------------------------------
+//Gives lat and lon for the city using the direct geocoding api for today's weather
 function getWeather(city) {
   const geoCodeApi = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=58e024ee1cf018fe40460b065442e140`;
 
   fetch(geoCodeApi)
       .then(function(response) {
           if (!response.ok) {
-              throw new Error('Failed to load results');
+              throw new Error('Failed to load results-1'); //for troubleshooting
           }
           return response.json();
       })
@@ -46,7 +41,7 @@ function getWeather(city) {
       })
       .then(function(response) {
           if (!response.ok) {
-              throw new Error('Failed to load results');
+              throw new Error('Failed to load results-2');
           }
           return response.json();
       })
@@ -60,7 +55,7 @@ function getWeather(city) {
 }
 
 
-//set up to retreive specified information from the weatherData object so that it can be displayed on the page
+//Displays the current weather results to the page
 function displayWeather(weatherData) {
   const cityName = weatherData.name;
   const temperature = weatherData.main.temp;
@@ -69,20 +64,18 @@ function displayWeather(weatherData) {
   const iconId = weatherData.weather[0].icon;
   console.log(weatherIcon);
 
-
-
   // Inserts the above information into a string using template literals
   const cityTitle = `Today's Forecast: ${cityName}`;
   const todaysDate = dayjs().format('ddd MM/DD/YYYY');
   const cityTemp = `Temp: ${temperature}K`; //fix to °F
   const cityWind = `Wind: ${windSpeed} m/s`;
   const cityHumidity = `Humidity: ${humidity}%`;
-
-
+  
+  // Selects the elements where the information will be displayed
+ // Uses the API weather id to grab the associated img icon
   const iconImg = document.getElementById('weatherIcon');
   iconImg.src = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 
-  // Selects the elements where the information will be displayed
   const TitleEl = document.getElementById('city-name');
   TitleEl.textContent = `${cityTitle} (${todaysDate})`;
 
@@ -94,52 +87,18 @@ function displayWeather(weatherData) {
 
   const humidityEl = document.getElementById('humidity-today');
   humidityEl.textContent = cityHumidity;
-
-
-
 }
-// function displayIcon(weatherIcon) {
-
-//     let iconId;
-//   switch (weatherIcon) {
-//     case 'Clear sky':
-//         iconId = '01d';
-//         break;
-//     case 'Clouds':
-//         icon = '02d'
-//         break;
-//     case 'Rain':
-//         icon = '10d'
-//         break;
-//     case 'Thunderstorm':
-//         iconId = '11d';
-//         break;
-//     case 'Snow':
-//         iconId = '13d'
-//         break;
-//     case 'Mist':
-//         iconId = '50d'
-//         break;
-//     default:
-//         iconId = '01d';
-// }
-
-// const iconImg = document.getElementById('weatherIcon');
-// iconImg.src = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
-// console.log(iconImg.src);
-//   }
-
-//   displayIcon(weatherIcon);
 
 
 //-------------------------------------------------------------
+////Gives lat and lon for the city using the direct geocoding api for the forecasted weather
 function getFiveDay(city) {
   const geoCodeApi = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=58e024ee1cf018fe40460b065442e140`;
 
   fetch(geoCodeApi)
       .then(function(response) {
           if (!response.ok) {
-              throw new Error('Failed to load results');
+              throw new Error('Failed to load results-3');
           }
           return response.json();
       })
@@ -154,7 +113,7 @@ function getFiveDay(city) {
       })
       .then(function(response) {
           if (!response.ok) {
-              throw new Error('Failed to load results');
+              throw new Error('Failed to load results-4');
           }
           return response.json();
       })
@@ -166,13 +125,16 @@ function getFiveDay(city) {
       });
 }
 
+
+//-----------------------------------------------------------------------------
+//Displays the forecasted weather results to the page
 function displayFiveDay (weatherData) {
   const forecastList = weatherData.list;
     const forecast = [];
 
     // Iterate over the forecast list to get specified data for each day
     for (let i = 0; i < forecastList.length; i += 8) {
-        const forecastItem = forecastList[i]; // Each day has forecast data every 3 hours, so multiple forecasts per day. Data for each day is every 8th entry.
+        const forecastItem = forecastList[i]; // Each day has forecast data every 3 hours, so multiple forecasts per day. Data for each day shown is every 8th entry.
         const date = dayjs(forecast.dt_txt).format('ddd MM/DD/YYYY');
         const temperature = forecastItem.main.temp;
         const windSpeed = forecastItem.wind.speed;
@@ -211,14 +173,46 @@ function displayFiveDay (weatherData) {
       // Append the day div to the five-day container
       fiveDayContainer.appendChild(dayDiv);
   });
-
-
-
 }
 
 //------------------------------------------------------------
+function savedCities() {
+    const savedCitiesDiv = document.getElementById('recent-cities');
+  
+    // Retrieve the list of previously searched cities from local storage
+    const cities = JSON.parse(localStorage.getItem('city')) || [];
+  
+    // Clear the previous list of cities
+    savedCitiesDiv.innerHTML = '';
+  
+    // Create a div element to contain the list of buttons
+    const buttonsContainer = document.createElement('div');
+  
+    // Iterate through the list of cities and create buttons for each city
+    cities.forEach(function(city) {
+      const cityButton = document.createElement('button');
+      cityButton.textContent = city;
+      
+      // Attach click event listener to each button
+      cityButton.addEventListener('click', function() {
+        // Call the function to fetch current weather data for the clicked city
+        getWeather(city);
+        // Call the function to fetch forecasted weather data for the clicked city
+        getFiveDay(city);
+      });
+      
+      buttonsContainer.appendChild(cityButton);
+    });
+  
+    // Append the container of buttons to the savedCitiesDiv
+    savedCitiesDiv.appendChild(buttonsContainer);
+  }
+  
+  // Call the function to display the list of saved cities
+  savedCities();
 
 
+//------------------------------------------------------------
 //event listener on search button that will call getCity function that saves the value to localStorage
 searchBtnEl.addEventListener('click', function(e) {
   e.preventDefault();
@@ -227,6 +221,6 @@ searchBtnEl.addEventListener('click', function(e) {
 
 
 
-//-------------------------------------------------------------
+
 
 

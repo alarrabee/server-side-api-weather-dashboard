@@ -10,6 +10,10 @@ h1 {
     padding-bottom: 5px;
 }
 
+h4 {
+    text-align: center;
+}
+
 
 
 form {
@@ -25,25 +29,30 @@ form {
     
 }
 
-button {
+.enter {
     display: flex;
     margin: 0 auto;
     display: inline-block;
     width:300px;
     margin-bottom: 10px;
     background: linear-gradient(to left, #4070f5, #051677);
-    color: white
+    color: white;
+
 }
 
 #buttonDiv {
     display: flex;
 }
 
-/* .section-two {
-    flex-direction: column;
-    justify-content: space-around;
-    overflow-y: auto; /*scroll bars *//*
-}*/
+
+#recent-cities button {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background-color: grey;
+    color: white;
+    margin-bottom: 10px;
+}
 
 
 .five-day-div {
