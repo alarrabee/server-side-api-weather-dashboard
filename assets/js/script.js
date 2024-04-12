@@ -67,18 +67,15 @@ function displayWeather(weatherData) {
   const humidity = weatherData.main.humidity;
 
   // Inserts the above information into a string using template literals
-  const cityTitle = `Today's Forecast for: ${cityName}`;
+  const cityTitle = `Today's Forecast: ${cityName}`;
   const todaysDate = dayjs().format('ddd MM/DD/YYYY');
-  const cityTemp = `Temperature: ${temperature}K`; //fix to °F
-  const cityWind = `Wind Speed: ${windSpeed} m/s`;
+  const cityTemp = `Temp: ${temperature}K`; //fix to °F
+  const cityWind = `Wind: ${windSpeed} m/s`;
   const cityHumidity = `Humidity: ${humidity}%`;
 
   // Selects the elements where the information will be displayed
   const TitleEl = document.getElementById('city-name');
-  TitleEl.textContent = cityTitle;
-
-  const dateEl = document.getElementById('todays-date');
-  dateEl.textContent = todaysDate;
+  TitleEl.textContent = `${cityTitle} (${todaysDate})`;
 
   const tempEl = document.getElementById('temp-today');
   tempEl.textContent = cityTemp;
@@ -133,7 +130,7 @@ function displayFiveDay (weatherData) {
     // Iterate over the forecast list to get specified data for each day
     for (let i = 0; i < forecastList.length; i += 8) {
         const forecastItem = forecastList[i]; // Each day has forecast data every 3 hours, so multiple forecasts per day. Data for each day is every 8th entry.
-        const date = forecastItem.dt_txt;
+        const date = dayjs(forecast.dt_txt).format('ddd MM/DD/YYYY');
         const temperature = forecastItem.main.temp;
         const windSpeed = forecastItem.wind.speed;
         const humidity = forecastItem.main.humidity;
@@ -152,11 +149,11 @@ function displayFiveDay (weatherData) {
       dayContainer.appendChild(dateElement);
 
       const temperatureElement = document.createElement('p');
-      temperatureElement.textContent = `Temperature: ${day.temperature}°C`;
+      temperatureElement.textContent = `Temp: ${day.temperature} K`;
       dayContainer.appendChild(temperatureElement);
 
       const windElement = document.createElement('p');
-      windElement.textContent = `Wind Speed: ${day.windSpeed} m/s`;
+      windElement.textContent = `Wind: ${day.windSpeed} m/s`;
       dayContainer.appendChild(windElement);
 
       const humidityElement = document.createElement('p');
