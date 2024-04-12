@@ -1,5 +1,5 @@
 header {
-    background-color: rgba(0, 0, 255, 0.699);
+    background: linear-gradient(to right, #4070f5, #051677);
     color: white;
     text-align: center; 
 }
@@ -10,40 +10,69 @@ h1 {
     padding-bottom: 5px;
 }
 
-
-section {
-    border: solid 2px rgba(0, 0, 255, 0.699);
+h4 {
+    text-align: center;
 }
 
+
+
 form {
-    border-bottom: solid;
+    border-bottom: solid grey;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
 
-#search-bar {
-    padding-bottom: 10px;
+
+
+#searchBar {
+    margin-bottom: 10px;
+    
 }
 
-button {
+.enter {
     display: flex;
     margin: 0 auto;
     display: inline-block;
     width:300px;
     margin-bottom: 10px;
+    background: linear-gradient(to left, #4070f5, #051677);
+    color: white;
+
 }
 
 #buttonDiv {
     display: flex;
 }
 
-/* .section-two {
-    flex-direction: column;
-    justify-content: space-around;
-    overflow-y: auto; /*scroll bars *//*
-}*/
+
+#recent-cities button {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background-color: grey;
+    color: white;
+    margin-bottom: 10px;
+}
 
 
 .five-day-div {
-    border: solid 2px rgba(0, 0, 255, 0.699);
+    border: solid 2px grey;
+    background-color: #051677;
+    color: white;
+    padding: 10px 30px;
+}
+
+#five-day-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#day0 {
+    border: solid 2px grey;
+    margin-top: 10px;
+}
+
+h4 {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

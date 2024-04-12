@@ -23,19 +23,20 @@
                         <input id="searchBar" class="form-control" type="text" placeholder="Minneapolis" aria-label="default input example">
                     </div>
                     <div id="buttonDiv">
-                        <button id="searchBtn" type="button" >Save Changes</button>
+                        <button id="searchBtn" type="button" class="enter" >Search</button>
                     </div>
                 </form>
 
                 <div id="searched-container">
                     <h4>Recently Viewed:</h4>
+                    <ul id="recent-cities"></ul>
                 </div>
             </section>
 
             <section class="col">
                 <div id="day0">
                     <h3 id="city-name">Today's Forecast</h3>
-                    <h4 id="todays-date"></h4>
+                    <img id="weatherIcon" src="" alt="weather icon">
                     <ul>
                         <li id="temp-today"></li>
                         <li id="wind-today"></li>
@@ -43,14 +44,17 @@
                     </ul>
                 </div>
 
-                <div id="five-day-container">
+                <div>
                     <h4>5-Day Forecast:</h4>
-                    <div id="day1" class="five-day-div"></div>
-                    <div id="day2" class="five-day-div"></div>
-                    <div id="day3" class="five-day-div"></div>
-                    <div id="day4" class="five-day-div"></div>
-                    <div id="day5" class="five-day-div"></div>
+                    <div id="five-day-container">
+                        <div id="day1" class="five-day-div"></div>
+                        <div id="day2" class="five-day-div"></div>
+                        <div id="day3" class="five-day-div"></div>
+                        <div id="day4" class="five-day-div"></div>
+                        <div id="day5" class="five-day-div"></div>
+                     </div>
                 </div>
+
             </section>
         </section>
 
