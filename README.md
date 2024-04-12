@@ -1,10 +1,10 @@
 Boot Camp Module 6 Challenge
 
 # Description
-
+This is the week 6 Module Challenge for the U of M Coding Bootcamp.
 
 # Server-Side APIs: Weather Dashboard
-
+The challenge was to build an application that retrieves weather data from a specified API in order to create a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS. 
 
 ## User Story
 ```
@@ -33,6 +33,7 @@ THEN I am again presented with current and future conditions for that city
 
 
 ## Improvements and Next Steps
-
+Set weather icons for the 5day weather forcast that reflects predicted conditions. Update style and page layout to make it look polished and professional. 
 
 ## Acknowledgments
+Utilized the OpenWeather API
