@@ -52,6 +52,7 @@ function getWeather(city) {
       })
       .then(function(weatherData) {
           displayWeather(weatherData);
+          console.log(weatherData);
       })
       .catch(function(error) {
           console.error('Error:', error.message);
@@ -65,6 +66,10 @@ function displayWeather(weatherData) {
   const temperature = weatherData.main.temp;
   const windSpeed = weatherData.wind.speed;
   const humidity = weatherData.main.humidity;
+  const iconId = weatherData.weather[0].icon;
+  console.log(weatherIcon);
+
+
 
   // Inserts the above information into a string using template literals
   const cityTitle = `Today's Forecast: ${cityName}`;
@@ -72,6 +77,10 @@ function displayWeather(weatherData) {
   const cityTemp = `Temp: ${temperature}K`; //fix to °F
   const cityWind = `Wind: ${windSpeed} m/s`;
   const cityHumidity = `Humidity: ${humidity}%`;
+
+
+  const iconImg = document.getElementById('weatherIcon');
+  iconImg.src = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 
   // Selects the elements where the information will be displayed
   const TitleEl = document.getElementById('city-name');
@@ -86,7 +95,41 @@ function displayWeather(weatherData) {
   const humidityEl = document.getElementById('humidity-today');
   humidityEl.textContent = cityHumidity;
 
+
+
 }
+// function displayIcon(weatherIcon) {
+
+//     let iconId;
+//   switch (weatherIcon) {
+//     case 'Clear sky':
+//         iconId = '01d';
+//         break;
+//     case 'Clouds':
+//         icon = '02d'
+//         break;
+//     case 'Rain':
+//         icon = '10d'
+//         break;
+//     case 'Thunderstorm':
+//         iconId = '11d';
+//         break;
+//     case 'Snow':
+//         iconId = '13d'
+//         break;
+//     case 'Mist':
+//         iconId = '50d'
+//         break;
+//     default:
+//         iconId = '01d';
+// }
+
+// const iconImg = document.getElementById('weatherIcon');
+// iconImg.src = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
+// console.log(iconImg.src);
+//   }
+
+//   displayIcon(weatherIcon);
 
 
 //-------------------------------------------------------------
