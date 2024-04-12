@@ -176,39 +176,33 @@ function displayFiveDay (weatherData) {
 }
 
 //------------------------------------------------------------
+//makes a list of recently searched cities that when clicked pulls up their weather data
 function savedCities() {
-    const savedCitiesDiv = document.getElementById('recent-cities');
-  
-    // Retrieve the list of previously searched cities from local storage
     const cities = JSON.parse(localStorage.getItem('city')) || [];
-  
+
+    const savedCitiesDiv = document.getElementById('recent-cities');
     // Clear the previous list of cities
     savedCitiesDiv.innerHTML = '';
   
-    // Create a div element to contain the list of buttons
     const buttonsContainer = document.createElement('div');
   
-    // Iterate through the list of cities and create buttons for each city
+    // Iterates through the list of cities and creates a button for them
     cities.forEach(function(city) {
       const cityButton = document.createElement('button');
       cityButton.textContent = city;
       
-      // Attach click event listener to each button
+      // adds event listener to each button so that when clicked it fetches current and forecasted weather data by calling the respective functions
       cityButton.addEventListener('click', function() {
-        // Call the function to fetch current weather data for the clicked city
         getWeather(city);
-        // Call the function to fetch forecasted weather data for the clicked city
         getFiveDay(city);
       });
-      
       buttonsContainer.appendChild(cityButton);
     });
-  
-    // Append the container of buttons to the savedCitiesDiv
+    // Appends the newly created buttonsContainer of buttons to the already created savedCitiesDiv
     savedCitiesDiv.appendChild(buttonsContainer);
   }
   
-  // Call the function to display the list of saved cities
+  // Calls the function to display the list of saved cities
   savedCities();
 
 
@@ -218,6 +212,7 @@ searchBtnEl.addEventListener('click', function(e) {
   e.preventDefault();
   getCity();
 });
+
 
 
 
