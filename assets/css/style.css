@@ -1,0 +1,44 @@
+header {
+    background-color: rgba(0, 0, 255, 0.699);
+    color: white;
+    text-align: center; 
+}
+
+h1 {
+    font-size: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+section {
+    border: solid 2px rgba(0, 0, 255, 0.699);
+}
+
+form {
+    border-bottom: solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#search-bar {
+    padding-bottom: 10px;
+}
+
+button {
+    display: flex;
+    margin: 0 auto;
+    display: inline-block;
+    width:300px;
+    margin-bottom: 10px;
+}
+
+#search-btn {
+    display: flex;
+}
+
+/* .section-two {
+    flex-direction: column;
+    justify-content: space-around;
+    overflow-y: auto; /*scroll bars *//*
+}*/
