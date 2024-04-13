@@ -14,6 +14,7 @@ function getCity() {
   cityArray.push(searchValue);
   localStorage.setItem('city', JSON.stringify(cityArray));
 
+  savedCities();
   getWeather(searchValue);
   getFiveDay(searchValue);
 }
@@ -202,8 +203,6 @@ function savedCities() {
     savedCitiesDiv.appendChild(buttonsContainer);
   }
   
-  // Calls the function to display the list of saved cities
-  savedCities();
 
 
 //------------------------------------------------------------
