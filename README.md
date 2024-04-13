@@ -30,6 +30,7 @@ THEN I am again presented with current and future conditions for that city
 https://alarrabee.github.io/server-side-api-weather-dashboard/
 
 ## Page Functionality
+![image](https://github.com/alarrabee/server-side-api-weather-dashboard/assets/149320486/c2ad6a60-4f1d-43b1-8ec9-a726e34cf9bd)
 
 
 ## Improvements and Next Steps
