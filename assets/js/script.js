@@ -202,7 +202,6 @@ function savedCities() {
 
 
 
-
 //------------------------------------------------------------
 //event listener on search button that will call getCity function that saves the value to localStorage
 searchBtnEl.addEventListener('click', function(e) {
