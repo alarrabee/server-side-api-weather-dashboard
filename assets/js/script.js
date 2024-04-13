@@ -14,8 +14,10 @@ function getCity() {
   cityArray.push(searchValue);
   localStorage.setItem('city', JSON.stringify(cityArray));
 
+  savedCities();
   getWeather(searchValue);
   getFiveDay(searchValue);
+  
 }
 
 //-----------------------------------------------------------------------------------------
@@ -40,6 +42,7 @@ function getWeather(city) {
           return fetch(openWeatherApi);
       })
       .then(function(response) {
+          console.log(response);
           if (!response.ok) {
               throw new Error('Failed to load results-2');
           }
@@ -49,9 +52,7 @@ function getWeather(city) {
           displayWeather(weatherData);
           console.log(weatherData);
       })
-      .catch(function(error) {
-          console.error('Error:', error.message);
-      });
+
 }
 
 
@@ -191,19 +192,15 @@ function savedCities() {
       const cityButton = document.createElement('button');
       cityButton.textContent = city;
       
-      // adds event listener to each button so that when clicked it fetches current and forecasted weather data by calling the respective functions
-      cityButton.addEventListener('click', function() {
-        getWeather(city);
-        getFiveDay(city);
-      });
+
       buttonsContainer.appendChild(cityButton);
     });
     // Appends the newly created buttonsContainer of buttons to the already created savedCitiesDiv
     savedCitiesDiv.appendChild(buttonsContainer);
   }
   
-  // Calls the function to display the list of saved cities
-  savedCities();
+
+
 
 
 //------------------------------------------------------------
